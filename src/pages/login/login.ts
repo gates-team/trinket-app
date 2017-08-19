@@ -24,17 +24,12 @@ export class LoginPage {
   }
 
   login () {
-    /*this.fb.logout()
     this.fb.login(['public_profile', 'user_friends', 'email'])
     .then((res: FacebookLoginResponse) => {
       console.log('Logged into Facebook!', res)
       this.navCtrl.setRoot('Home',res)
     })
-    .catch(e => console.log('Error logging into Facebook', e));*/
-    //this.fb.getLoginStatus()
-    //.then(response => this.navCtrl.setRoot('Home', response))
-    //.catch(response => alert(response))
-    this.navCtrl.setRoot('Home')    
+    .catch(e => console.log('Error logging into Facebook', e));
   }
 
 }
