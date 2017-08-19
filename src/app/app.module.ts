@@ -6,17 +6,21 @@ import { HttpModule } from '@angular/http';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
+import { StealingFormPage } from '../pages/stealing-form/stealing-form';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { HomeProvider } from '../providers/home/home';
 import { SpeechRecognition } from '@ionic-native/speech-recognition';
+import { Geolocation } from '@ionic-native/geolocation';
+import { StealingFormProvider } from '../providers/stealing-form/stealing-form';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
-    ListPage
+    ListPage,
+    StealingFormPage
   ],
   imports: [
     BrowserModule,
@@ -27,7 +31,8 @@ import { SpeechRecognition } from '@ionic-native/speech-recognition';
   entryComponents: [
     MyApp,
     HomePage,
-    ListPage
+    ListPage,
+    StealingFormPage
   ],
   providers: [
     StatusBar,
@@ -35,6 +40,8 @@ import { SpeechRecognition } from '@ionic-native/speech-recognition';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     HomeProvider,
     SpeechRecognition,
+    Geolocation,
+    StealingFormProvider
   ]
 })
 export class AppModule {}
