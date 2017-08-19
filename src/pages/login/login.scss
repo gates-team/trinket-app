@@ -1,0 +1,64 @@
+page-login {
+    border-bottom: 7px solid #f47900;
+    border-top: 7px solid #f47900;
+    .login {
+        height: 90%;
+        display: flex;
+        align-items: center;
+        flex-flow: row wrap;
+    }
+    .wrapper__login {
+        margin: 0 auto;
+    }
+    .logo {
+        display: block;
+        height: auto;
+        margin: 0 auto;
+        max-width: 204px;
+        img {
+            display: block;
+            margin: 1em auto;
+        }
+        .slogan {
+            color: #B8B8B8;
+        }
+    }
+    /* Facebook button */
+    .facebookLoginBtnMain {
+        background-color: #4267b2;
+        margin: 8px;
+        border: none;
+        display: block;
+        text-decoration: none;
+        color: #fff;
+        font-family: sans-serif;
+        outline: none;
+        cursor: pointer;
+        box-sizing: border-box;
+    }
+    .facebookLoginBtnMain:hover {
+        background: #5979d1;
+    }
+    .facebookLoginBtnMain span {
+        float: right;
+    }
+    /* X large */
+    .xLargeFacebookBtn.facebookLoginBtnMain {
+        display: block;
+        height: 40px;
+        font-size: 14px;
+        font-weight: 600;
+        padding: 6px;
+        border-radius: 4px;
+        margin: 0rem auto;
+        margin-top: 5em;
+    }
+    .xLargeFacebookBtn.facebookLoginBtnMain svg {
+        height: 28px;
+    }
+    .xLargeFacebookBtn.facebookLoginBtnMain span {
+        height: 28px;
+        line-height: 28px;
+        padding: 0 16px;
+    }
+}

@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { IonicPage,NavController } from 'ionic-angular';
 import { HomeProvider } from '../../providers/home/home';
 import { SpeechRecognition } from '@ionic-native/speech-recognition';
 
+@IonicPage({name: 'Home'})
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html',
@@ -14,7 +15,5 @@ export class HomePage {
   }
 
   ionViewDidLoad () {
-    this.speechRecognition.isRecognitionAvailable()
-    .then((available: boolean) => console.log(available))
   }
 }
