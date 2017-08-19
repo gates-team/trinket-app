@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { HomeProvider } from '../../providers/home/home';
 import { SpeechRecognition } from '@ionic-native/speech-recognition';
-import { Facebook } from "@ionic-native/facebook";
 import { OneSignal } from '@ionic-native/onesignal';
 
 @IonicPage({name: 'Home'})

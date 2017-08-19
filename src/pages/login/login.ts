@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController } from 'ionic-angular';
-import { Facebook, FacebookLoginResponse } from '@ionic-native/facebook';
+import {NavController, MenuController } from 'ionic-angular';
+import {UserProvider} from '../../providers/user/user'
 
 /**
  * Generated class for the LoginPage page.
@@ -9,27 +9,30 @@ import { Facebook, FacebookLoginResponse } from '@ionic-native/facebook';
  * on Ionic pages and navigation.
  */
 
-@IonicPage()
 @Component({
   selector: 'page-login',
   templateUrl: 'login.html',
 })
-export class LoginPage {
+class LoginPage {
 
-  constructor(public navCtrl: NavController,private fb: Facebook) {
-  }
+    constructor(public navCtrl: NavController, public userProvider: UserProvider, public menuCtrl: MenuController) {
+      //this.menuCtrl.enable(false)
+    }
+    
+    ionViewWillEnter() {
+      this.userProvider.user.subscribe(response => {
+        if(response!= null) {        
+          if(!response.isAnonymous) {
+            this.navCtrl.setRoot('Home')
+          }
+        }
+      })
+    }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad LoginPage');
-  }
-
-  login () {
-    this.fb.login(['public_profile', 'user_friends', 'email'])
-    .then((res: FacebookLoginResponse) => {
-      console.log('Logged into Facebook!', res)
-      this.navCtrl.setRoot('Home',res)
-    })
-    .catch(e => console.log('Error logging into Facebook', e));
-  }
-
+    login () {
+      this.userProvider.login()
+    }
 }
+
+export class ALoginPage extends LoginPage {}
+export class BLoginPage extends LoginPage {}

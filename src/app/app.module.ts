@@ -11,19 +11,19 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { HomeProvider } from '../providers/home/home';
 import { SpeechRecognition } from '@ionic-native/speech-recognition';
-import { Facebook, FacebookLoginResponse } from '@ionic-native/facebook';
 import { OneSignal } from '@ionic-native/onesignal';
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { environment } from '../environments/environment';
-import { LoginPage } from "../pages/login/login";
+import { ALoginPage } from "../pages/login/login";
+import { UserProvider } from '../providers/user/user';
 
 @NgModule({
   declarations: [
     MyApp,
     ListPage,
-    LoginPage
+    ALoginPage
   ],
   imports: [
     BrowserModule,
@@ -36,7 +36,7 @@ import { LoginPage } from "../pages/login/login";
   entryComponents: [
     MyApp,
     ListPage,
-    LoginPage
+    ALoginPage
   ],
   providers: [
     StatusBar,
@@ -44,8 +44,8 @@ import { LoginPage } from "../pages/login/login";
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     HomeProvider,
     SpeechRecognition,
-    Facebook,
-    OneSignal
+    OneSignal,
+    UserProvider
   ]
 })
 export class AppModule {}

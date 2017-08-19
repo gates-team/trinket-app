@@ -5,8 +5,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 
 import { HomePage } from '../pages/home/home';
-import { LoginPage } from '../pages/login/login';
+import { ALoginPage } from '../pages/login/login';
 import { OneSignal } from "@ionic-native/onesignal";
+import { UserProvider } from "../providers/user/user";
 
 
 @Component({
@@ -15,28 +16,38 @@ import { OneSignal } from "@ionic-native/onesignal";
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = LoginPage;
+  rootPage: any = ALoginPage;
 
   pages: Array<{title: string, component: any}>;
+  
+  isVisible: boolean = false;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, private oneSignal: OneSignal) {
+  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, private oneSignal: OneSignal, private userProvider: UserProvider) {
     this.initializeApp();
-    this.oneSignal.startInit('570d6f01-58e2-472a-9025-a8a237a4c72d', '221171942800');
-    this.oneSignal.handleNotificationReceived().subscribe((data) => {
-      console.log('Notificações: ' + JSON.stringify(data));
-     });
-     this.oneSignal.endInit();
-    // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Home', component: HomePage }
     ];
-
+    this.userProvider.user.subscribe(response => {      
+      if(response!= null) {        
+        if(!response.isAnonymous){
+          this.isVisible = true
+        } else {
+          this.isVisible = false
+        }
+      } else {
+        this.isVisible = false
+        //this.nav.setRoot(LoginPage)
+      }
+    })
   }
 
   initializeApp() {
     this.platform.ready().then(() => {
-      // Okay, so the platform is ready and our plugins are available.
-      // Here you can do any higher level native things you might need.
+      /*this.oneSignal.startInit('570d6f01-58e2-472a-9025-a8a237a4c72d', '221171942800');
+      this.oneSignal.handleNotificationReceived().subscribe((data) => {
+        console.log('Notificações: ' + JSON.stringify(data));
+      });
+      this.oneSignal.endInit();*/
       this.statusBar.styleDefault();
       this.splashScreen.hide();
     });
@@ -46,5 +57,10 @@ export class MyApp {
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario
     this.nav.setRoot(page.component);
+  }
+
+  logout () {
+    this.userProvider.logout()
+    //this.nav.setRoot(LoginPage)
   }
 }
