@@ -12,12 +12,20 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { HomeProvider } from '../providers/home/home';
 import { SpeechRecognition } from '@ionic-native/speech-recognition';
+import { Facebook, FacebookLoginResponse } from '@ionic-native/facebook';
+import { OneSignal } from '@ionic-native/onesignal';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import { environment } from '../environments/environment';
+import { LoginPage } from "../pages/login/login";
 import { Geolocation } from '@ionic-native/geolocation';
 import { StealingFormProvider } from '../providers/stealing-form/stealing-form';
 
 @NgModule({
   declarations: [
     MyApp,
+    ListPage,
+    LoginPage
     HomePage,
     ListPage,
     StealingFormPage
@@ -25,11 +33,15 @@ import { StealingFormProvider } from '../providers/stealing-form/stealing-form';
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    HttpModule
+    HttpModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
+    ListPage,
+    LoginPage
     HomePage,
     ListPage,
     StealingFormPage
@@ -40,6 +52,8 @@ import { StealingFormProvider } from '../providers/stealing-form/stealing-form';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     HomeProvider,
     SpeechRecognition,
+    Facebook,
+    OneSignal
     Geolocation,
     StealingFormProvider
   ]
