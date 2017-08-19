@@ -8,6 +8,7 @@ import { ListPage } from '../pages/list/list';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { SpeechRecognition } from '@ionic-native/speech-recognition';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   providers: [
     StatusBar,
     SplashScreen,
+    SpeechRecognition,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
