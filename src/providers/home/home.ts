@@ -10,13 +10,13 @@ import 'rxjs/add/operator/map';
 */
 @Injectable()
 export class HomeProvider {
-  
+
   constructor(public http: Http) {
 
   }
 
   testTrinketApi() {
     return this.http.get('http://stg-hubapps.mundipagg.com:5002/')
-    .subscribe(data => data.json())
+    .subscribe(data => console.log(data))
   }
 }
