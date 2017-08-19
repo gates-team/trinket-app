@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController } from 'ionic-angular';
 import { Facebook, FacebookLoginResponse } from '@ionic-native/facebook';
 
 /**
@@ -16,7 +16,7 @@ import { Facebook, FacebookLoginResponse } from '@ionic-native/facebook';
 })
 export class LoginPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,private fb: Facebook) {
+  constructor(public navCtrl: NavController,private fb: Facebook) {
   }
 
   ionViewDidLoad() {
@@ -24,10 +24,17 @@ export class LoginPage {
   }
 
   login () {
-    //this.fb.login(['public_profile', 'user_friends', 'email'])
-    //.then((res: FacebookLoginResponse) => console.log('Logged into Facebook!', res))
-    //.catch(e => console.log('Error logging into Facebook', e));
-    this.navCtrl.setRoot('Home')
+    /*this.fb.logout()
+    this.fb.login(['public_profile', 'user_friends', 'email'])
+    .then((res: FacebookLoginResponse) => {
+      console.log('Logged into Facebook!', res)
+      this.navCtrl.setRoot('Home',res)
+    })
+    .catch(e => console.log('Error logging into Facebook', e));*/
+    //this.fb.getLoginStatus()
+    //.then(response => this.navCtrl.setRoot('Home', response))
+    //.catch(response => alert(response))
+    this.navCtrl.setRoot('Home')    
   }
 
 }

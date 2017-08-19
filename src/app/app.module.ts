@@ -12,6 +12,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { HomeProvider } from '../providers/home/home';
 import { SpeechRecognition } from '@ionic-native/speech-recognition';
 import { Facebook, FacebookLoginResponse } from '@ionic-native/facebook';
+import { OneSignal } from '@ionic-native/onesignal';
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
@@ -43,7 +44,8 @@ import { LoginPage } from "../pages/login/login";
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     HomeProvider,
     SpeechRecognition,
-    Facebook
+    Facebook,
+    OneSignal
   ]
 })
 export class AppModule {}
