@@ -6,7 +6,7 @@
     "private": true,
     "scripts": {
         "clean": "ionic-app-scripts clean",
-        "build": "ionic-app-scripts build",
+        "build": "ionic-app-scripts build --dev",
         "lint": "ionic-app-scripts lint",
         "ionic:build": "ionic-app-scripts build",
         "ionic:serve": "ionic-app-scripts serve"
@@ -23,15 +23,20 @@
         "@ionic-native/core": "3.12.1",
         "@ionic-native/facebook": "^4.1.0",
         "@ionic-native/onesignal": "^4.1.0",
+        "@ionic-native/geolocation": "^4.1.0",
+        "@ionic-native/native-geocoder": "^4.1.0",
         "@ionic-native/speech-recognition": "^4.1.0",
         "@ionic-native/splash-screen": "3.12.1",
         "@ionic-native/status-bar": "3.12.1",
         "@ionic/storage": "2.0.1",
         "angularfire2": "^4.0.0-rc.2",
         "cordova-android": "^6.2.3",
+        "cordova-plugin-compat": "^1.0.0",
         "cordova-plugin-console": "^1.0.5",
         "cordova-plugin-device": "^1.1.4",
         "cordova-plugin-facebook4": "^1.9.1",
+        "cordova-plugin-geolocation": "^2.4.3",
+        "cordova-plugin-nativegeocoder": "^2.0.2",
         "cordova-plugin-speechrecognition": "^1.1.2",
         "cordova-plugin-splashscreen": "^4.0.3",
         "cordova-plugin-statusbar": "^2.2.2",
@@ -65,6 +70,8 @@
                 "APP_NAME": "Trinket"
             },
             "onesignal-cordova-plugin": {}
+            "cordova-plugin-geolocation": {},
+            "cordova-plugin-nativegeocoder": {}
         },
         "platforms": [
             "android"

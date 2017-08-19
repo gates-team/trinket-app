@@ -7,6 +7,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
 import { OneSignal } from "@ionic-native/onesignal";
+import { StealingFormPage } from '../pages/stealing-form/stealing-form';
 
 
 @Component({
@@ -28,7 +29,8 @@ export class MyApp {
      this.oneSignal.endInit();
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Home', component: HomePage }
+      { title: 'Home', component: HomePage },
+      { title: 'Informar Roubo', component: StealingFormPage }
     ];
 
   }
