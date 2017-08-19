@@ -8,7 +8,7 @@ import { HomeProvider } from '../../providers/home/home';
   providers: [HomeProvider]
 })
 export class HomePage {
-
+  
   constructor(public navCtrl: NavController, private homeProvider: HomeProvider) {
     this.homeProvider.testTrinketApi();
   }

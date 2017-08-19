@@ -10,6 +10,7 @@ import { ListPage } from '../pages/list/list';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { HomeProvider } from '../providers/home/home';
+import { SpeechRecognition } from '@ionic-native/speech-recognition';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { HomeProvider } from '../providers/home/home';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    HomeProvider
+    HomeProvider,
+    SpeechRecognition,
   ]
 })
 export class AppModule {}
