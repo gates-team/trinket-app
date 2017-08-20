@@ -16,18 +16,13 @@ import { StealingFormPage } from '../pages/stealing-form/stealing-form';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = HomePage;
+  rootPage: any = LoginPage;
 
   pages: Array<{title: string, component: any}>;
 
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, private oneSignal: OneSignal) {
     this.initializeApp();
-    // this.oneSignal.startInit('570d6f01-58e2-472a-9025-a8a237a4c72d', '221171942800');
-    // this.oneSignal.handleNotificationReceived().subscribe((data) => {
-    //   console.log('Notificações: ' + JSON.stringify(data));
-    //  });
-    //  this.oneSignal.endInit();
-    // used for an example of ngFor and navigation
+    // 
     this.pages = [
       { title: 'Home', component: HomePage },
       { title: 'Informar Roubo', component: StealingFormPage }
@@ -39,6 +34,11 @@ export class MyApp {
     this.platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
+      this.oneSignal.startInit('570d6f01-58e2-472a-9025-a8a237a4c72d', '221171942800');
+      this.oneSignal.handleNotificationReceived().subscribe((data) => {
+        console.log('Notificações: ' + JSON.stringify(data));
+      });
+      this.oneSignal.endInit();
       this.statusBar.styleDefault();
       this.splashScreen.hide();
     });

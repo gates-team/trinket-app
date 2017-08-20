@@ -26,7 +26,6 @@ import { StealingFormProvider } from '../providers/stealing-form/stealing-form';
     MyApp,
     ListPage,
     LoginPage,
-    HomePage,
     ListPage,
     StealingFormPage
   ],
@@ -42,7 +41,6 @@ import { StealingFormProvider } from '../providers/stealing-form/stealing-form';
     MyApp,
     ListPage,
     LoginPage,
-    HomePage,
     ListPage,
     StealingFormPage
   ],
