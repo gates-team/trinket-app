@@ -36,7 +36,7 @@ export class LoginPage {
   }
 
   login () {
-
+    this.navCtrl.setRoot('Home');
     this.fb.getLoginStatus().then((FacebookStatusResponse) => {
       if(FacebookStatusResponse.status == 'connected')
       {
@@ -45,6 +45,7 @@ export class LoginPage {
       }
       else
       {
+        
         this.loginCore();
       }
     });

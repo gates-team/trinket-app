@@ -16,7 +16,7 @@ export class StealingFormProvider {
   
   sendVehicle(vehicle: object){
     let body = JSON.stringify(vehicle);
-    this.http.post('/vehicles', body)
+    this.http.post('/vehicles/register', body)
     .subscribe(response => {
       console.log(response);
     });

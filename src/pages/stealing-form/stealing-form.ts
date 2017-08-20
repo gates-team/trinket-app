@@ -17,7 +17,7 @@ import {Validators, FormBuilder, FormGroup } from '@angular/forms';
 })
 export class StealingFormPage {
   private form: FormGroup;
-  private licensePlate: any;
+  public licensePlate: any;
   private latitude: any;
   private longitude: any;
 
@@ -44,9 +44,9 @@ export class StealingFormPage {
       return {
        isStolen: true,
        licensePlate: this.licensePlate,
-       location: [ this.latitude, this.longitude],
+       location: [this.latitude, this.longitude]
        owner : {
-            id: 'ASDASDAA',
+            id: '1234',
             name: 'ASDASDASD',
             email: 'ADASDASDASD',
             gender: 'ASDADASDASDA'

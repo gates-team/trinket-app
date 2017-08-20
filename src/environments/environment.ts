@@ -8,5 +8,5 @@ export const environment = {
       storageBucket: '<your-storage-bucket>',
       messagingSenderId: '<your-messaging-sender-id>'
     },
-    origin: 'http://stg-hubapps.mundipagg.com:5002'
+    origin: 'http://localhost:5002'
   };

@@ -2,9 +2,11 @@ import {Injectable} from "@angular/core";
 import { ConnectionBackend, RequestOptions, Request, RequestOptionsArgs, Response, Http, Headers} from "@angular/http";
 import {Observable} from "rxjs/Rx";
 import {environment} from "../environments/environment";
+import {Geolocation } from '@ionic-native/geolocation';
 
 @Injectable()
 export class InterceptedHttp extends Http {
+
     constructor(backend: ConnectionBackend, defaultOptions: RequestOptions) {
         super(backend, defaultOptions);
     }
@@ -16,8 +18,17 @@ export class InterceptedHttp extends Http {
 
     post(url: string, body: string, options?: RequestOptionsArgs): Observable<Response> {
         url = this.updateUrl(url);
-        body.Owner = 
-        body.Location = [, ];
+
+        var obj = JSON.parse(body);
+
+        var geolocation = new Geolocation();
+        geolocation.getCurrentPosition()
+        .then(function(resp) {
+            obj.Owner = { id : "1234", name : "Thiago Barradas", email : "thiago@mailinator.com", gender : "male" };
+            obj.Location = [ resp.coords.latitude, resp.coords.longitude];
+            body = JSON.stringify(body);
+        });
+
         return super.post(url, body, this.getRequestOptionArgs(options));
     }
 

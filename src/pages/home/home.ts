@@ -3,7 +3,6 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { HomeProvider } from '../../providers/home/home';
 import { SpeechRecognition } from '@ionic-native/speech-recognition';
 import { OneSignal } from '@ionic-native/onesignal';
-import { GeolocationProvider } from "../../providers/geolocation/geolocation";
 import { TextToSpeech } from '@ionic-native/text-to-speech';
 
 @IonicPage({name: 'Home'})

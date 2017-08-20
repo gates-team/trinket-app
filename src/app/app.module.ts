@@ -23,8 +23,6 @@ import { StealingFormProvider } from '../providers/stealing-form/stealing-form';
 import { TextToSpeech } from '@ionic-native/text-to-speech';
 import { OneSignalProvider } from '../providers/one-signal/one-signal';
 import { httpFactory } from "./http.factory";
-import { BackgroundGeolocation} from '@ionic-native/background-geolocation';
-import { GeolocationProvider } from '../providers/geolocation/geolocation';
 import { UserProvider } from '../providers/user/user';
 
 @NgModule({
@@ -65,8 +63,6 @@ import { UserProvider } from '../providers/user/user';
     Geolocation,
     StealingFormProvider,
     OneSignalProvider,
-    BackgroundGeolocation,
-    GeolocationProvider,
     UserProvider,
     TextToSpeech
   ]
