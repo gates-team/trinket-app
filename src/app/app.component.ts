@@ -2,8 +2,12 @@ import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-
+import { Geolocation } from '@ionic-native/geolocation';
 import { HomePage } from '../pages/home/home';
+import { LoginPage } from '../pages/login/login';
+import { OneSignal } from "@ionic-native/onesignal";
+import { StealingFormPage } from '../pages/stealing-form/stealing-form';
+
 
 @Component({
   templateUrl: 'app.html'
@@ -11,24 +15,39 @@ import { HomePage } from '../pages/home/home';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = HomePage;
+  rootPage: any = LoginPage;
 
   pages: Array<{title: string, component: any}>;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
-    this.initializeApp();
+  /*config: BackgroundGeolocationConfig = {
+      desiredAccuracy: 10,
+      stationaryRadius: 20,
+      distanceFilter: 30,
+      debug: true, //  enable this hear sounds for background-geolocation life-cycle.
+      stopOnTerminate: false, // enable this to clear background location settings when the app terminates
+  };*/
 
-    // used for an example of ngFor and navigation
+  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, private oneSignal: OneSignal,  private geolocation: Geolocation) {
+    this.initializeApp();
+    // 
     this.pages = [
-      { title: 'Home', component: HomePage }
+      { title: 'Home', component: HomePage },
+      { title: 'Informar Roubo', component: StealingFormPage }
     ];
 
   }
 
   initializeApp() {
     this.platform.ready().then(() => {
-      // Okay, so the platform is ready and our plugins are available.
-      // Here you can do any higher level native things you might need.
+      this.geolocation.getCurrentPosition().then((resp) => {
+       }).catch((error) => {
+         console.log('Error getting location', error);
+       });
+      this.oneSignal.startInit('570d6f01-58e2-472a-9025-a8a237a4c72d', '221171942800');
+      this.oneSignal.handleNotificationReceived().subscribe((data) => {
+        console.log('Notificações: ' + JSON.stringify(data));
+      });
+      this.oneSignal.endInit();
       this.statusBar.styleDefault();
       this.splashScreen.hide();
     });
