@@ -44,7 +44,7 @@ export class StealingFormPage {
       return {
        isStolen: true,
        licensePlate: this.licensePlate,
-       location: [this.latitude, this.longitude]
+       location: [this.latitude, this.longitude],
        owner : {
             id: '1234',
             name: 'ASDASDASD',
