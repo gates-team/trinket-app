@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
-import { BackgroundGeolocation} from '@ionic-native/background-geolocation';
+import { Geolocation } from '@ionic-native/geolocation';
 
 /*
   Generated class for the GeolocationProvider provider.
@@ -12,14 +12,16 @@ import { BackgroundGeolocation} from '@ionic-native/background-geolocation';
 @Injectable()
 export class GeolocationProvider {
 
-  constructor(private backgroundGeolocation: BackgroundGeolocation) {}
+  constructor(private geolocation: Geolocation) {}
 
-  getLocations() {
-    return this.backgroundGeolocation.getLocations()
-  }
-
-  getValidLocations() {
-    return this.backgroundGeolocation.getValidLocations()
+  getPosition() {
+    return this.geolocation.getCurrentPosition()
+    .then((resp) => {
+      Promise.resolve(resp)
+    }).catch((error) => {
+      console.log('Error getting location', error);
+      Promise.reject(error)
+    });
   }
 
 }
