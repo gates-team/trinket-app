@@ -17,6 +17,8 @@ export class InterceptedHttp extends Http {
     post(url: string, body: string, options?: RequestOptionsArgs): Observable<Response> {
         console.log('POST CARALHO');
         url = this.updateUrl(url);
+        body.Owner = 
+        body.Location = [, ];
         return super.post(url, body, this.getRequestOptionArgs(options));
     }
 
