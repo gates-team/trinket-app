@@ -20,6 +20,7 @@ import { environment } from '../environments/environment';
 import { LoginPage } from "../pages/login/login";
 import { Geolocation } from '@ionic-native/geolocation';
 import { StealingFormProvider } from '../providers/stealing-form/stealing-form';
+import { TextToSpeech } from '@ionic-native/text-to-speech';
 import { OneSignalProvider } from '../providers/one-signal/one-signal';
 import { httpFactory } from "./http.factory";
 
@@ -60,6 +61,7 @@ import { httpFactory } from "./http.factory";
     OneSignal,
     Geolocation,
     StealingFormProvider,
+    TextToSpeech,
     OneSignalProvider
   ]
 })

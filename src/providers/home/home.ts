@@ -16,7 +16,7 @@ export class HomeProvider {
 
   }
 
-  getVehicleDataByVoice(voiceData: Object): Observable<Object> {
+  getVehicleDataByVoice(voiceData: Object): Observable<any> {
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
     return this.http.post('http://stg-hubapps.mundipagg.com:5002/voice', 
