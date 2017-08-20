@@ -82,7 +82,7 @@
     <plugin name="cordova-plugin-console" spec="^1.0.5" />
     <plugin name="cordova-plugin-device" spec="^1.1.4" />
     <plugin name="cordova-plugin-facebook4" spec="^1.9.1">
-        <variable name="APP_ID" value="485588568474391" />
+        <variable name="APP_ID" value="1899559976961377" />
         <variable name="APP_NAME" value="Trinket" />
     </plugin>
     <plugin name="cordova-plugin-geolocation" spec="^2.4.3" />
