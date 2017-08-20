@@ -69,7 +69,7 @@
                 "APP_ID": "485588568474391",
                 "APP_NAME": "Trinket"
             },
-            "onesignal-cordova-plugin": {}
+            "onesignal-cordova-plugin": {},
             "cordova-plugin-geolocation": {},
             "cordova-plugin-nativegeocoder": {}
         },

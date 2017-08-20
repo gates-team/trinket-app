@@ -22,7 +22,7 @@ export class StealingFormPage {
   private longitude: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private geolocation: Geolocation,
-     private stealingProvider: StealingFormProvider, private formBuilder: FormBuilder) {
+     private stealingProvider: StealingFormProvider) {
    
   }
   

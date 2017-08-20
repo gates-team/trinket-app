@@ -25,7 +25,7 @@ import { StealingFormProvider } from '../providers/stealing-form/stealing-form';
   declarations: [
     MyApp,
     ListPage,
-    LoginPage
+    LoginPage,
     HomePage,
     ListPage,
     StealingFormPage
@@ -41,7 +41,7 @@ import { StealingFormProvider } from '../providers/stealing-form/stealing-form';
   entryComponents: [
     MyApp,
     ListPage,
-    LoginPage
+    LoginPage,
     HomePage,
     ListPage,
     StealingFormPage
@@ -53,7 +53,7 @@ import { StealingFormProvider } from '../providers/stealing-form/stealing-form';
     HomeProvider,
     SpeechRecognition,
     Facebook,
-    OneSignal
+    OneSignal,
     Geolocation,
     StealingFormProvider
   ]

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import { Http, Headers } from '@angular/http';
 import 'rxjs/add/operator/map';
+import { Observable } from "rxjs/Observable";
 
 /*
   Generated class for the HomeProvider provider.
@@ -15,8 +16,10 @@ export class HomeProvider {
 
   }
 
-  testTrinketApi() {
-    return this.http.get('http://stg-hubapps.mundipagg.com:5002/')
-    .subscribe(data => console.log(data))
+  getVehicleDataByVoice(voiceData: Object): Observable<Object> {
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    return this.http.post('http://stg-hubapps.mundipagg.com:5002/voice', 
+    JSON.stringify(voiceData), { headers });    
   }
 }
