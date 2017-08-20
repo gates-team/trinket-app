@@ -86,6 +86,10 @@
         <variable name="APP_NAME" value="Trinket" />
     </plugin>
     <plugin name="cordova-plugin-geolocation" spec="^2.4.3" />
+    <plugin name="cordova-plugin-mauron85-background-geolocation" spec="^2.2.5">
+        <variable name="ACCOUNT_TYPE" value="$PACKAGE_NAME.account" />
+        <variable name="CONTENT_AUTHORITY" value="$PACKAGE_NAME" />
+    </plugin>
     <plugin name="cordova-plugin-nativegeocoder" spec="^2.0.2" />
     <plugin name="cordova-plugin-speechrecognition" spec="^1.1.2" />
     <plugin name="cordova-plugin-splashscreen" spec="^4.0.3" />
