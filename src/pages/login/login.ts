@@ -20,8 +20,8 @@ export class LoginPage {
   constructor(public navCtrl: NavController,private fb: Facebook, private userProvider: UserProvider) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad LoginPage');
+  ionViewCanEnter () {
+    this.login();
   }
 
   verifyLogin () {
@@ -36,7 +36,24 @@ export class LoginPage {
   }
 
   login () {
-    this.fb.login(['public_profile', 'user_friends', 'email'])
+
+    this.fb.getLoginStatus().then((FacebookStatusResponse) => {
+      if(FacebookStatusResponse.status == 'connected')
+      {
+        console.log('Already logged into Facebook!', FacebookStatusResponse)
+        this.navCtrl.setRoot('Home',FacebookStatusResponse)
+      }
+      else
+      {
+        this.loginCore();
+      }
+    });
+
+   
+  }
+
+  loginCore() {
+   this.fb.login(['public_profile', 'user_friends', 'email'])
     .then((res: FacebookLoginResponse) => {
       console.log('Logged into Facebook!', res)
       this.userProvider.saveUser(res)      
