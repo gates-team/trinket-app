@@ -20,6 +20,7 @@ import { environment } from '../environments/environment';
 import { LoginPage } from "../pages/login/login";
 import { Geolocation } from '@ionic-native/geolocation';
 import { StealingFormProvider } from '../providers/stealing-form/stealing-form';
+import { TextToSpeech } from '@ionic-native/text-to-speech';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import { StealingFormProvider } from '../providers/stealing-form/stealing-form';
     Facebook,
     OneSignal,
     Geolocation,
-    StealingFormProvider
+    StealingFormProvider,
+    TextToSpeech
   ]
 })
 export class AppModule {}
