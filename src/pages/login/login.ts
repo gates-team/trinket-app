@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController } from 'ionic-angular';
 import { Facebook, FacebookLoginResponse } from '@ionic-native/facebook';
+import {UserProvider} from '../../providers/user/user'
 
 /**
  * Generated class for the LoginPage page.
@@ -16,11 +17,22 @@ import { Facebook, FacebookLoginResponse } from '@ionic-native/facebook';
 })
 export class LoginPage {
 
-  constructor(public navCtrl: NavController,private fb: Facebook) {
+  constructor(public navCtrl: NavController,private fb: Facebook, private userProvider: UserProvider) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad LoginPage');
+  ionViewCanEnter () {
+    this.login();
+  }
+
+  verifyLogin () {
+    this.fb.getLoginStatus()
+    .then((res) => {
+      if(res.status === 'status') {
+      this.userProvider.saveUser(res)
+      this.navCtrl.setRoot('Home',res)
+    }
+    })
+    .catch(e => console.log('Error logging into Facebook', e));
   }
 
   login () {
@@ -44,13 +56,10 @@ export class LoginPage {
    this.fb.login(['public_profile', 'user_friends', 'email'])
     .then((res: FacebookLoginResponse) => {
       console.log('Logged into Facebook!', res)
+      this.userProvider.saveUser(res)      
       this.navCtrl.setRoot('Home',res)
     })
     .catch(e => console.log('Error logging into Facebook', e));
-  }
-
-  ionViewWillEnter () {
-    this.login();
   }
 
 }
