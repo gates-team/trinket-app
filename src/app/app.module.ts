@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
-import { HttpModule } from '@angular/http';
+import { HttpModule, Http, XHRBackend, RequestOptions } from '@angular/http';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -21,6 +21,8 @@ import { LoginPage } from "../pages/login/login";
 import { Geolocation } from '@ionic-native/geolocation';
 import { StealingFormProvider } from '../providers/stealing-form/stealing-form';
 import { TextToSpeech } from '@ionic-native/text-to-speech';
+import { OneSignalProvider } from '../providers/one-signal/one-signal';
+import { httpFactory } from "./http.factory";
 
 @NgModule({
   declarations: [
@@ -46,16 +48,21 @@ import { TextToSpeech } from '@ionic-native/text-to-speech';
     StealingFormPage
   ],
   providers: [
+    {
+        provide: Http,
+        useFactory: httpFactory,
+        deps: [XHRBackend, RequestOptions]
+    },
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler},
     HomeProvider,
     SpeechRecognition,
     Facebook,
     OneSignal,
     Geolocation,
     StealingFormProvider,
-    TextToSpeech
+    TextToSpeech,
+    OneSignalProvider
   ]
 })
 export class AppModule {}

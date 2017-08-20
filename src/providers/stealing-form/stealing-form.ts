@@ -16,6 +16,9 @@ export class StealingFormProvider {
   
   sendVehicle(vehicle: object){
     let body = JSON.stringify(vehicle);
-    this.http.post('http://stg-hubapps.mundipagg.com:5002/vehicles', body);
+    this.http.post('/vehicles', body)
+    .subscribe(response => {
+      console.log(response);
+    });
   }
 }

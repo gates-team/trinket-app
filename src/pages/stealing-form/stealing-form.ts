@@ -36,9 +36,8 @@ export class StealingFormPage {
   }
   
   sendVehicleForm(teste: any){
-    debugger;
     let vehicle = this.createVehicle();
-    //this.stealingProvider.sendVehicle(vehicle);
+    this.stealingProvider.sendVehicle(vehicle);
   }
 
   createVehicle(): object {
@@ -47,10 +46,10 @@ export class StealingFormPage {
        licensePlate: this.licensePlate,
        location: [ this.latitude, this.longitude],
        owner : {
-            id: '',
-            name: '',
-            email: '',
-            gender: ''
+            id: 'ASDASDAA',
+            name: 'ASDASDASD',
+            email: 'ADASDASDASD',
+            gender: 'ASDADASDASDA'
       }
     };
   }
