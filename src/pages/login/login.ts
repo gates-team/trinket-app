@@ -27,10 +27,12 @@ export class LoginPage {
   verifyLogin () {
     this.fb.getLoginStatus()
     .then((res) => {
-      if(res.status === 'status') {
-      this.userProvider.saveUser(res)
-      this.navCtrl.setRoot('Home',res)
-    }
+      if(res.status === 'connected') {
+        this.userProvider.saveUser(res)
+        this.navCtrl.setRoot('Home',res)
+      } else {
+        this.navCtrl.setRoot('Login')
+      }
     })
     .catch(e => console.log('Error logging into Facebook', e));
   }

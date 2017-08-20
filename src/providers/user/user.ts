@@ -16,7 +16,17 @@ export class UserProvider {
   }
 
   saveUser (payload) {
-    console.log(payload);
+    let user = localStorage.getItem('USER')
+    if(!user) {
+      localStorage.setItem('USER',JSON.stringify(payload))
+      return true
+    } else {
+      return true
+    }
+  }
+
+  getUser () {
+    return JSON.parse(localStorage.getItem('USER'))
   }
 
 }
