@@ -8,5 +8,5 @@ export const environment = {
       storageBucket: '<your-storage-bucket>',
       messagingSenderId: '<your-messaging-sender-id>'
     },
-    origin: 'http://localhost:5002'
+    origin: 'http://859c158c.ngrok.io'
   };
