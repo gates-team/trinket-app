@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
+import { UserProvider } from '../stealing-form/stealing-form';
 
 /*
   Generated class for the StealingFormProvider provider.
@@ -11,7 +12,7 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class StealingFormProvider {
 
-  constructor(public http: Http) {
+  constructor(public http: Http, public user : UserProvider) {
   }
   
   sendVehicle(vehicle: object){
